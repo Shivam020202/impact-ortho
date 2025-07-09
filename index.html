@@ -12,6 +12,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <script>
@@ -77,6 +79,155 @@
             font-size: 12px;
         }
     </style>
+    <style>
+        /* Custom styles for the page */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Defining custom colors used in the original code */
+        .bg-primary {
+            background-color: #1E40AF;
+            /* Example: Blue-700 */
+        }
+
+        .text-primary {
+            color: #1E40AF;
+            /* Example: Blue-700 */
+        }
+
+        .bg-secondary {
+            background-color: #14B8A6;
+            /* Example: Teal-500 */
+        }
+
+        .text-secondary {
+            color: #14B8A6;
+            /* Example: Teal-500 */
+        }
+
+        .border-secondary {
+            border-color: #14B8A6;
+            /* Example: Teal-500 */
+        }
+
+        .from-secondary {
+            --tw-gradient-from: #14B8A6;
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(20, 184, 166, 0));
+        }
+
+        .to-blue-400 {
+            --tw-gradient-to: #60A5FA;
+        }
+
+        /* Card hover effect from the original request */
+        .card-hover {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Swiper custom styles */
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+            padding-bottom: 50px;
+            position: relative;
+            /* Add this */
+            z-index: 1;
+            /* Add this */
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            padding: 10px;
+        }
+
+        .swiper-pagination {
+            position: absolute !important;
+            /* Add this */
+            bottom: 10px !important;
+            /* Add this */
+            left: 50% !important;
+            /* Add this */
+            transform: translateX(-50%) !important;
+            /* Add this */
+            z-index: 10 !important;
+            /* Add this */
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: #14B8A6 !important;
+            /* secondary color */
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #1E40AF !important;
+            /* primary color */
+            background-color: rgba(255, 255, 255, 0.9) !important;
+            border-radius: 50% !important;
+            width: 44px !important;
+            height: 44px !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+            position: absolute !important;
+            /* Add this */
+            top: 50% !important;
+            /* Add this */
+            transform: translateY(-50%) !important;
+            /* Add this */
+            z-index: 10 !important;
+            /* Add this */
+        }
+
+        .swiper-button-next {
+            right: 10px !important;
+            /* Add this */
+        }
+
+        .swiper-button-prev {
+            left: 10px !important;
+            /* Add this */
+        }
+
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: 20px !important;
+            font-weight: 800;
+        }
+    </style>
+    <style>
+        /* Optional: Add a subtle transition for the answer height */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        }
+
+        .faq-answer.open {
+            max-height: 200px;
+            /* Adjust as needed for your content */
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease-out;
+        }
+
+        .faq-icon.rotate {
+            transform: rotate(180deg);
+        }
+    </style>
 </head>
 
 <body class="font-jakarta text-gray-800 bg-white">
@@ -85,7 +236,7 @@
         <button id="lang-toggle"
             class="bg-primary text-white px-3 py-2 rounded-full shadow-lg hover:bg-blue-900 transition-all duration-300 text-sm font-medium">
             <i class="fas fa-language mr-1"></i>
-            <span id="lang-text">বাংলা</span>
+            <span id="lang-text">العربية</span>
         </button>
     </div>
 
@@ -103,29 +254,29 @@
                 <div class="hidden lg:flex space-x-6">
                     <a href="#home"
                         class="text-primary hover:text-secondary transition-colors duration-300 font-medium text-sm"
-                        data-en="Home" data-bn="হোম">Home</a>
+                        data-en="Home" data-ar="الرئيسية">Home</a>
                     <a href="#overview"
                         class="text-primary hover:text-secondary transition-colors duration-300 font-medium text-sm"
-                        data-en="Overview" data-bn="সংক্ষিপ্ত বিবরণ">Overview</a>
+                        data-en="Overview" data-ar="نظرة عامة">Overview</a>
                     <a href="#specialities"
                         class="text-primary hover:text-secondary transition-colors duration-300 font-medium text-sm"
-                        data-en="Our Specialities" data-bn="আমাদের বিশেষত্ব">Our Specialities</a>
+                        data-en="Our Specialities" data-ar="تخصصاتنا">Our Specialities</a>
                     <a href="#patient-info"
                         class="text-primary hover:text-secondary transition-colors duration-300 font-medium text-sm"
-                        data-en="Patient Info" data-bn="রোগীর তথ্য">Patient Info</a>
+                        data-en="Patient Info" data-ar="معلومات المريض">Patient Info</a>
                     <a href="#blog"
                         class="text-primary hover:text-secondary transition-colors duration-300 font-medium text-sm"
-                        data-en="Blog" data-bn="ব্লগ">Blog</a>
+                        data-en="Blog" data-ar="المدونة">Blog</a>
                     <a href="#contact"
                         class="text-primary hover:text-secondary transition-colors duration-300 font-medium text-sm"
-                        data-en="Contact Us" data-bn="যোগাযোগ">Contact Us</a>
+                        data-en="Contact Us" data-ar="اتصل بنا">Contact Us</a>
                 </div>
 
                 <!-- CTA Button -->
                 <div class="hidden md:block">
                     <button
                         class="bg-secondary text-primary px-4 py-2 rounded-lg font-bold text-sm hover:bg-blue-400 transition-colors duration-300 shadow-md"
-                        data-en="BOOK APPOINTMENT" data-bn="অ্যাপয়েন্টমেন্ট বুক করুন">
+                        onclick="scrollToForm()" data-en="BOOK APPOINTMENT" data-ar="احجز موعداً">
                         BOOK APPOINTMENT
                     </button>
                 </div>
@@ -141,22 +292,22 @@
                 <div class="flex flex-col space-y-2 pb-3">
                     <a href="#home"
                         class="text-primary hover:text-secondary transition-colors duration-300 py-2 text-sm"
-                        data-en="Home" data-bn="হোম">Home</a>
+                        data-en="Home" data-ar="الرئيسية">Home</a>
                     <a href="#overview"
                         class="text-primary hover:text-secondary transition-colors duration-300 py-2 text-sm"
-                        data-en="Overview" data-bn="সংক্ষিপ্ত বিবরণ">Overview</a>
+                        data-en="Overview" data-ar="نظرة عامة">Overview</a>
                     <a href="#specialities"
                         class="text-primary hover:text-secondary transition-colors duration-300 py-2 text-sm"
-                        data-en="Our Specialities" data-bn="আমাদের বিশেষত্ব">Our Specialities</a>
+                        data-en="Our Specialities" data-ar="تخصصاتنا">Our Specialities</a>
                     <a href="#patient-info"
                         class="text-primary hover:text-secondary transition-colors duration-300 py-2 text-sm"
-                        data-en="Patient Info" data-bn="রোগীর তথ্য">Patient Info</a>
+                        data-en="Patient Info" data-ar="معلومات المريض">Patient Info</a>
                     <a href="#blog"
                         class="text-primary hover:text-secondary transition-colors duration-300 py-2 text-sm"
-                        data-en="Blog" data-bn="ব্লগ">Blog</a>
+                        data-en="Blog" data-ar="المدونة">Blog</a>
                     <a href="#contact"
                         class="text-primary hover:text-secondary transition-colors duration-300 py-2 text-sm"
-                        data-en="Contact Us" data-bn="যোগাযোগ">Contact Us</a>
+                        data-en="Contact Us" data-ar="اتصل بنا">Contact Us</a>
                 </div>
             </div>
         </nav>
@@ -164,7 +315,7 @@
 
     <!-- Hero Section -->
     <section id="home"
-        class="relative bg-gradient-to-br from-primary via-blue-900 to-medical-800 text-white py-12 overflow-hidden">
+        class="relative bg-gradient-to-br from-blue-500 to-medical-500 via-primary text-white py-12 overflow-hidden">
         <div class="absolute inset-0 bg-medical-pattern opacity-10"></div>
         <div class="absolute top-0 right-0 w-1/3 h-full opacity-20">
             <img src="assets/background.jpg" alt="Medical Equipment" class="w-full h-full object-cover object-right">
@@ -175,31 +326,31 @@
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-1 bg-secondary mr-4"></div>
                         <span class="text-secondary font-semibold text-sm" data-en="TRUSTED HEALTHCARE"
-                            data-bn="বিশ্বস্ত স্বাস্থ্যসেবা">TRUSTED HEALTHCARE</span>
+                            data-ar="رعاية صحية موثوقة">TRUSTED HEALTHCARE</span>
                     </div>
                     <h1 class="text-3xl md:text-5xl font-bold mb-4 leading-tight">
                         <span class="text-secondary font-black" data-en="20 YEARS OF EXPERIENCE"
-                            data-bn="২০ বছরের অভিজ্ঞতা">20 YEARS OF EXPERIENCE</span><br>
+                            data-ar="20 عاماً من الخبرة">20 YEARS OF EXPERIENCE</span><br>
                         <span data-en="In the field of Orthopedic Joint Replacement Surgery"
-                            data-bn="অর্থোপেডিক জয়েন্ট রিপ্লেসমেন্ট সার্জারির ক্ষেত্রে">In the field of Orthopedic
+                            data-ar="في مجال جراحة استبدال المفاصل العظمية">In the field of Orthopedic
                             Joint Replacement Surgery</span><br>
-                        <span class="text-secondary" data-en="Sports Medicine" data-bn="স্পোর্টস মেডিসিন">Sports
+                        <span class="text-secondary" data-en="Sports Medicine" data-ar="طب الرياضة">Sports
                             Medicine</span>
                     </h1>
                     <p class="text-lg mb-6 text-gray-200"
                         data-en="Advanced orthopedic care with cutting-edge technology and compassionate treatment for your complete recovery."
-                        data-bn="আপনার সম্পূর্ণ সুস্থতার জন্য অত্যাধুনিক প্রযুক্তি এবং সহানুভূতিশীল চিকিৎসা সহ উন্নত অর্থোপেডিক যত্ন।">
+                        data-ar="رعاية عظام متقدمة بأحدث التقنيات وعلاج رحيم لشفائك التام.">
                         Advanced orthopedic care with cutting-edge technology and compassionate treatment for your
                         complete recovery.</p>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <button
                             class="bg-secondary text-primary px-6 py-3 rounded-lg text-lg font-bold hover:bg-blue-400 transition-colors duration-300 shadow-lg"
-                            data-en="BOOK AN APPOINTMENT" data-bn="অ্যাপয়েন্টমেন্ট বুক করুন">
+                            onclick="scrollToForm()" data-en="BOOK AN APPOINTMENT" data-ar="احجز موعداً">
                             BOOK AN APPOINTMENT
                         </button>
                         <a href="tel:+919494559848"
                             class="border-2 border-secondary text-secondary px-6 py-3 rounded-lg text-lg font-bold hover:bg-secondary hover:text-primary transition-colors duration-300"
-                            data-en="CALL NOW" data-bn="এখনই কল করুন">
+                            data-en="CALL NOW" data-ar="اتصل الآن">
                             <i class="fas fa-phone mr-2"></i>CALL NOW
                         </a>
                     </div>
@@ -224,13 +375,13 @@
                         <div class="absolute inset-0 z-20 flex items-center justify-center text-center text-white p-6">
                             <div>
                                 <h2 class="text-2xl md:text-4xl font-bold mb-3" data-en="ROBOTIC KNEE REPLACEMENT"
-                                    data-bn="রোবোটিক হাঁটু প্রতিস্থাপন">ROBOTIC KNEE REPLACEMENT</h2>
+                                    data-ar="استبدال الركبة بالروبوت">ROBOTIC KNEE REPLACEMENT</h2>
                                 <p class="text-lg mb-4" data-en="Less Pain, Faster Recovery, Shorter Hospital Stay"
-                                    data-bn="কম ব্যথা, দ্রুত সুস্থতা, কম হাসপাতালে থাকা">Less Pain, Faster Recovery,
+                                    data-ar="ألم أقل، تعافي أسرع، إقامة أقصر في المستشفى">Less Pain, Faster Recovery,
                                     Shorter Hospital Stay</p>
                                 <button
                                     class="bg-primary text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-900 transition-colors duration-300 shadow-lg"
-                                    data-en="BOOK AN APPOINTMENT" data-bn="অ্যাপয়েন্টমেন্ট বুক করুন">
+                                    onclick="scrollToForm()" data-en="BOOK AN APPOINTMENT" data-ar="احجز موعداً">
                                     BOOK AN APPOINTMENT
                                 </button>
                             </div>
@@ -245,13 +396,13 @@
                         <div class="absolute inset-0 z-20 flex items-center justify-center text-center text-white p-6">
                             <div>
                                 <h2 class="text-2xl md:text-4xl font-bold mb-3" data-en="BEST ORTHOPEDIC CENTER"
-                                    data-bn="সেরা অর্থোপেডিক সেন্টার">BEST ORTHOPEDIC CENTER</h2>
+                                    data-ar="أفضل مركز عظام">BEST ORTHOPEDIC CENTER</h2>
                                 <p class="text-lg mb-4" data-en="Get back to your routine. Get your strength back."
-                                    data-bn="আপনার রুটিনে ফিরে যান। আপনার শক্তি ফিরে পান।">Get back to your routine. Get
+                                    data-ar="عد إلى روتينك. استعد قوتك.">Get back to your routine. Get
                                     your strength back.</p>
                                 <button
                                     class="bg-secondary text-primary px-6 py-3 rounded-lg font-bold hover:bg-blue-400 transition-colors duration-300 shadow-lg"
-                                    data-en="BOOK AN APPOINTMENT" data-bn="অ্যাপয়েন্টমেন্ট বুক করুন">
+                                    onclick="scrollToForm()" data-en="BOOK AN APPOINTMENT" data-ar="احجز موعداً">
                                     BOOK AN APPOINTMENT
                                 </button>
                             </div>
@@ -265,15 +416,15 @@
                         <div class="absolute inset-0 z-20 flex items-center justify-center text-center text-white p-6">
                             <div>
                                 <h2 class="text-2xl md:text-4xl font-bold mb-3" data-en="SPORTS MEDICINE"
-                                    data-bn="স্পোর্টস মেডিসিন">SPORTS MEDICINE</h2>
+                                    data-ar="طب الرياضة">SPORTS MEDICINE</h2>
                                 <p class="text-lg mb-4"
                                     data-en="Beyond Limitations, Beyond Pain. Unleash Your Untapped Potential. Get back in the game."
-                                    data-bn="সীমাবদ্ধতার বাইরে, ব্যথার বাইরে। আপনার অব্যবহৃত সম্ভাবনা মুক্ত করুন। খেলায় ফিরে আসুন।">
+                                    data-ar="ما وراء القيود، ما وراء الألم. أطلق العنان لقدراتك الكامنة. عد إلى اللعبة.">
                                     Beyond Limitations, Beyond Pain. Unleash Your Untapped Potential. Get back in the
                                     game.</p>
                                 <button
                                     class="bg-primary text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-900 transition-colors duration-300 shadow-lg"
-                                    data-en="BOOK AN APPOINTMENT" data-bn="অ্যাপয়েন্টমেন্ট বুক করুন">
+                                    onclick="scrollToForm()" data-en="BOOK AN APPOINTMENT" data-ar="احجز موعداً">
                                     BOOK AN APPOINTMENT
                                 </button>
                             </div>
@@ -297,16 +448,16 @@
             <div class="text-center mb-8">
                 <div class="flex items-center justify-center mb-4">
                     <div class="w-12 h-1 bg-secondary mr-4"></div>
-                    <span class="text-secondary font-semibold text-sm" data-en="ABOUT US"
-                        data-bn="আমাদের সম্পর্কে">ABOUT US</span>
+                    <span class="text-secondary font-semibold text-sm" data-en="ABOUT US" data-ar="من نحن">ABOUT
+                        US</span>
                     <div class="w-12 h-1 bg-secondary ml-4"></div>
                 </div>
                 <h2 class="text-3xl md:text-4xl font-bold text-primary mb-3"
                     data-en="Impact Ortho: Best Orthopedic Hospital in India"
-                    data-bn="ইমপ্যাক্ট অর্থো: ভারতের সেরা অর্থোপেডিক হাসপাতাল">Impact Ortho: Best Orthopedic Hospital in
+                    data-ar="إمباكت أورثو: أفضل مستشفى عظام في الهند">Impact Ortho: Best Orthopedic Hospital in
                     India</h2>
                 <p class="text-xl text-gray-600" data-en="Get back to your routine with full strength & confidence!"
-                    data-bn="পূর্ণ শক্তি এবং আত্মবিশ্বাস নিয়ে আপনার রুটিনে ফিরে যান!">Get back to your routine with
+                    data-ar="عد إلى روتينك بكامل قوتك وثقتك!">Get back to your routine with
                     full strength & confidence!</p>
             </div>
 
@@ -323,10 +474,10 @@
                         </div>
                     </div>
                     <h3 class="text-lg font-bold text-primary mb-2" data-en="World Class Infrastructure"
-                        data-bn="বিশ্বমানের অবকাঠামো">World Class Infrastructure</h3>
+                        data-ar="بنية تحتية عالمية المستوى">World Class Infrastructure</h3>
                     <p class="text-gray-600 text-sm"
                         data-en="State-of-the-art facilities with advanced medical equipment and modern operation theaters."
-                        data-bn="অত্যাধুনিক চিকিৎসা সরঞ্জাম এবং আধুনিক অপারেশন থিয়েটার সহ অত্যাধুনিক সুবিধা।">
+                        data-ar="مرافق حديثة مع معدات طبية متطورة وغرف عمليات حديثة.">
                         State-of-the-art facilities with advanced medical equipment and modern operation theaters.</p>
                 </div>
 
@@ -340,11 +491,11 @@
                             <i class="fas fa-star text-white text-xs"></i>
                         </div>
                     </div>
-                    <h3 class="text-lg font-bold text-primary mb-2" data-en="Orthopedic Experts"
-                        data-bn="অর্থোপেডিক বিশেষজ্ঞ">Orthopedic Experts</h3>
+                    <h3 class="text-lg font-bold text-primary mb-2" data-en="Orthopedic Experts" data-ar="خبراء العظام">
+                        Orthopedic Experts</h3>
                     <p class="text-gray-600 text-sm"
                         data-en="Highly skilled and experienced orthopedic surgeons with specialized training in joint replacement."
-                        data-bn="জয়েন্ট রিপ্লেসমেন্টে বিশেষ প্রশিক্ষণপ্রাপ্ত অত্যন্ত দক্ষ এবং অভিজ্ঞ অর্থোপেডিক সার্জন।">
+                        data-ar="جراحو عظام ذوو مهارات عالية وخبرة مع تدريب متخصص في استبدال المفاصل.">
                         Highly skilled and experienced orthopedic surgeons with specialized training in joint
                         replacement.</p>
                 </div>
@@ -360,10 +511,10 @@
                         </div>
                     </div>
                     <h3 class="text-lg font-bold text-primary mb-2" data-en="Multidisciplinary Care"
-                        data-bn="বহুবিভাগীয় যত্ন">Multidisciplinary Care</h3>
+                        data-ar="رعاية متعددة التخصصات">Multidisciplinary Care</h3>
                     <p class="text-gray-600 text-sm"
                         data-en="Comprehensive care team including physiotherapists, nurses, and support staff for holistic treatment."
-                        data-bn="সামগ্রিক চিকিৎসার জন্য ফিজিওথেরাপিস্ট, নার্স এবং সহায়তাকারী কর্মীদের নিয়ে ব্যাপক যত্ন দল।">
+                        data-ar="فريق رعاية شامل يضم أخصائيي العلاج الطبيعي والممرضات وموظفي الدعم للعلاج الشامل.">
                         Comprehensive care team including physiotherapists, nurses, and support staff for holistic
                         treatment.</p>
                 </div>
@@ -379,10 +530,10 @@
                         </div>
                     </div>
                     <h3 class="text-lg font-bold text-primary mb-2" data-en="Seamless After Care"
-                        data-bn="নিরবচ্ছিন্ন পরবর্তী যত্ন">Seamless After Care</h3>
+                        data-ar="رعاية لاحقة سلسة">Seamless After Care</h3>
                     <p class="text-gray-600 text-sm"
                         data-en="Continuous post-operative care and rehabilitation support for optimal recovery outcomes."
-                        data-bn="সর্বোত্তম পুনরুদ্ধারের ফলাফলের জন্য ক্রমাগত অপারেশন-পরবর্তী যত্ন এবং পুনর্বাসন সহায়তা।">
+                        data-ar="رعاية مستمرة بعد الجراحة ودعم إعادة التأهيل لتحقيق أفضل نتائج التعافي.">
                         Continuous post-operative care and rehabilitation support for optimal recovery outcomes.</p>
                 </div>
             </div>
@@ -392,21 +543,21 @@
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                     <div class="p-3">
                         <div class="text-3xl md:text-4xl font-bold text-secondary mb-1">25,000+</div>
-                        <div class="text-gray-200 text-sm" data-en="Orthopedic Surgeries" data-bn="অর্থোপেডিক সার্জারি">
+                        <div class="text-gray-200 text-sm" data-en="Orthopedic Surgeries" data-ar="جراحات العظام">
                             Orthopedic Surgeries</div>
                     </div>
                     <div class="p-3">
                         <div class="text-3xl md:text-4xl font-bold text-secondary mb-1">3,000+</div>
-                        <div class="text-gray-200 text-sm" data-en="Knee Replacements" data-bn="হাঁটু প্রতিস্থাপন">Knee
+                        <div class="text-gray-200 text-sm" data-en="Knee Replacements" data-ar="استبدال الركبة">Knee
                             Replacements</div>
                     </div>
                     <div class="p-3">
                         <div class="text-3xl md:text-4xl font-bold text-secondary mb-1">40+</div>
-                        <div class="text-gray-200 text-sm" data-en="Rewards" data-bn="পুরস্কার">Rewards</div>
+                        <div class="text-gray-200 text-sm" data-en="Rewards" data-ar="الجوائز">Rewards</div>
                     </div>
                     <div class="p-3">
                         <div class="text-3xl md:text-4xl font-bold text-secondary mb-1">40,000+</div>
-                        <div class="text-gray-200 text-sm" data-en="Happy Patients" data-bn="সন্তুষ্ট রোগী">Happy
+                        <div class="text-gray-200 text-sm" data-en="Happy Patients" data-ar="مرضى سعداء">Happy
                             Patients</div>
                     </div>
                 </div>
@@ -414,92 +565,269 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="specialities" class="py-12 bg-gray-50">
+    <!-- Doctor -->
+    <section class="py-12 border-b border-gray-200">
+
         <div class="container mx-auto px-4">
-            <div class="text-center mb-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-10 text-center "
+                data-en="Impact Ortho: Best Orthopedic Hospital in India"
+                data-ar="إمباكت أورثو: أفضل مستشفى عظام في الهند">Meet our doctor</h2>
+
+            <div class="md:flex md:items-start md:space-x-8">
+                <div class="md:w-1/4 flex flex-col items-center mb-6 md:mb-0">
+                    <img src="https://impactorthocenter.com/wp-content/uploads/2023/11/WP-Images.png"
+                        alt="Dr. Ratnakar Rao" class="rounded-md mb-4 w-48 h-48 object-cover border border-gray-200">
+                    <h3 class="text-xl font-medium text-gray-800 text-center leading-tight mb-1">Dr. Ratnakar Rao</h3>
+                    <p class="text-md text-gray-600 text-center leading-tight">Chief Consultant<br>Orthopaedic & Joint
+                        Replacement Surgeon</p>
+
+                </div>
+
+                <div class="md:w-3/4">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-4 pb-2 border-b border-gray-200">
+                        Expertise & Achievements
+                    </h2>
+
+                    <p class="text-gray-700 text-base leading-relaxed mb-4">
+                        Dr. Ratnakar Rao (MBBS, MS (Ortho)) is a leading orthopedic surgeon in Hyderabad. With over 20
+                        years of experience, he has performed 25,000+ orthopedic and joint replacement surgeries,
+                        specializing in Knee & Hip Replacement, Trauma, Arthroplasty, Arthroscopy, Pediatric
+                        Orthopedics, and Sports Medicine.
+                    </p>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-y-4 gap-x-2 text-center text-gray-700 text-sm mb-4">
+                        <div>
+                            <p class="font-semibold text-lg text-gray-800">25,000+</p>
+                            <p class="text-gray-600 leading-tight">Surgeries</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-lg text-gray-800">3,000+</p>
+                            <p class="text-gray-600 leading-tight">Knee Replacements</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-lg text-gray-800">40+</p>
+                            <p class="text-gray-600 leading-tight">Awards</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-lg text-gray-800">40,000+</p>
+                            <p class="text-gray-600 leading-tight">Happy Patients</p>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-700 text-sm leading-relaxed">
+                        A member of prestigious associations including the Indian Orthopedic Association and AO Trauma
+                        Foundation, Dr. Rao founded Impact Orthopaedic Center to provide comprehensive, pain-free
+                        orthopedic care and support athletes in preventing injuries.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="specialities" class="py-12 overflow-hidden relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
                 <div class="flex items-center justify-center mb-4">
                     <div class="w-12 h-1 bg-secondary mr-4"></div>
-                    <span class="text-secondary font-semibold text-sm" data-en="OUR SERVICES" data-bn="আমাদের সেবা">OUR
+                    <span class="text-secondary font-semibold text-sm" data-en="OUR SERVICES" data-ar="خدماتنا">OUR
                         SERVICES</span>
                     <div class="w-12 h-1 bg-secondary ml-4"></div>
                 </div>
                 <h2 class="text-3xl md:text-4xl font-bold text-primary mb-3" data-en="Our Orthopaedic Services In India"
-                    data-bn="ভারতে আমাদের অর্থোপেডিক সেবা">Our Orthopaedic Services In India</h2>
+                    data-ar="خدماتنا العظمية في الهند">Our Orthopaedic Services In India</h2>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div class="bg-white p-5 rounded-xl shadow-lg card-hover border-l-4 border-secondary">
-                    <div class="flex items-center mb-3">
+            <!-- Swiper Slider -->
+            <div class="swiper-container mySwiper relative">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1: Arthroscopy -->
+                    <div class="swiper-slide">
                         <div
-                            class="w-12 h-12 bg-gradient-to-br from-secondary to-blue-400 rounded-lg flex items-center justify-center mr-3">
-                            <i class="fas fa-running text-white text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-bold text-primary" data-en="Sports Injury Treatments"
-                                data-bn="ক্রীড়া আঘাতের চিকিৎসা">Sports Injury Treatments</h3>
+                            class="bg-white p-5 rounded-xl shadow-lg card-hover border-l-4 border-secondary w-full h-full flex flex-col">
+                            <div class="flex items-center mb-3">
+                                <div
+                                    class="w-12 h-12 bg-gradient-to-br from-secondary to-blue-400 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
+                                    <i class="fas fa-search-plus text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-primary text-left" data-en="Arthroscopy"
+                                        data-ar="تنظير المفصل">Arthroscopy</h3>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 mb-3 text-sm text-left flex-grow"
+                                data-en="Minimally invasive surgical procedure to visualize, diagnose, and treat problems inside a joint."
+                                data-ar="إجراء جراحي طفيف التوغل لرؤية وتشخيص وعلاج المشاكل داخل المفصل.">
+                                Minimally invasive surgical procedure to visualize, diagnose, and treat problems inside
+                                a
+                                joint.</p>
                         </div>
                     </div>
-                    <p class="text-gray-600 mb-3 text-sm"
-                        data-en="Comprehensive treatment for sports-related injuries with advanced rehabilitation techniques."
-                        data-bn="উন্নত পুনর্বাসন কৌশল সহ ক্রীড়া-সম্পর্কিত আঘাতের ব্যাপক চিকিৎসা।">Comprehensive
-                        treatment for sports-related injuries with advanced rehabilitation techniques.</p>
 
-                </div>
-
-                <div class="bg-white p-5 rounded-xl shadow-lg card-hover border-l-4 border-secondary">
-                    <div class="flex items-center mb-3">
+                    <!-- Slide 2: Hip Replacement Surgery -->
+                    <div class="swiper-slide">
                         <div
-                            class="w-12 h-12 bg-gradient-to-br from-secondary to-blue-400 rounded-lg flex items-center justify-center mr-3">
-                            <i class="fas fa-robot text-white text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-bold text-primary" data-en="Robotic Knee Replacement"
-                                data-bn="রোবোটিক হাঁটু প্রতিস্থাপন">Robotic Knee Replacement</h3>
+                            class="bg-white p-5 rounded-xl shadow-lg card-hover border-l-4 border-secondary w-full h-full flex flex-col">
+                            <div class="flex items-center mb-3">
+                                <div
+                                    class="w-12 h-12 bg-gradient-to-br from-secondary to-blue-400 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
+                                    <i class="fas fa-user-injured text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-primary text-left"
+                                        data-en="Hip Replacement Surgery" data-ar="جراحة استبدال مفصل الورك">Hip
+                                        Replacement Surgery</h3>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 mb-3 text-sm text-left flex-grow"
+                                data-en="Expert hip replacement surgery for restored mobility and enhanced quality of life."
+                                data-ar="جراحة استبدال مفصل الورك بخبرة لاستعادة الحركة وتحسين نوعية الحياة.">
+                                Expert hip replacement surgery for restored mobility and enhanced quality of life.</p>
                         </div>
                     </div>
-                    <p class="text-gray-600 mb-3 text-sm"
-                        data-en="Precision robotic surgery for faster recovery and better outcomes in knee replacement."
-                        data-bn="হাঁটু প্রতিস্থাপনে দ্রুত সুস্থতা এবং ভাল ফলাফলের জন্য নির্ভুল রোবোটিক সার্জারি।">
-                        Precision robotic surgery for faster recovery and better outcomes in knee replacement.</p>
 
-                </div>
-
-                <div class="bg-white p-5 rounded-xl shadow-lg card-hover border-l-4 border-secondary">
-                    <div class="flex items-center mb-3">
+                    <!-- Slide 3: Knee Replacement Surgery -->
+                    <div class="swiper-slide">
                         <div
-                            class="w-12 h-12 bg-gradient-to-br from-secondary to-blue-400 rounded-lg flex items-center justify-center mr-3">
-                            <i class="fas fa-bone text-white text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-bold text-primary" data-en="Knee Replacement Surgery"
-                                data-bn="হাঁটু প্রতিস্থাপন সার্জারি">Knee Replacement Surgery</h3>
+                            class="bg-white p-5 rounded-xl shadow-lg card-hover border-l-4 border-secondary w-full h-full flex flex-col">
+                            <div class="flex items-center mb-3">
+                                <div
+                                    class="w-12 h-12 bg-gradient-to-br from-secondary to-blue-400 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
+                                    <i class="fas fa-bone text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-primary text-left"
+                                        data-en="Knee Replacement Surgery" data-ar="جراحة استبدال مفصل الركبة">Knee
+                                        Replacement Surgery</h3>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 mb-3 text-sm text-left flex-grow"
+                                data-en="Advanced knee replacement procedures for improved mobility and pain relief."
+                                data-ar="إجراءات استبدال الركبة المتقدمة لتحسين الحركة وتخفيف الألم.">Advanced
+                                knee
+                                replacement procedures for improved mobility and pain relief.</p>
                         </div>
                     </div>
-                    <p class="text-gray-600 mb-3 text-sm"
-                        data-en="Advanced knee replacement procedures for improved mobility and pain relief."
-                        data-bn="উন্নত গতিশীলতা এবং ব্যথা উপশমের জন্য উন্নত হাঁটু প্রতিস্থাপন পদ্ধতি।">Advanced knee
-                        replacement procedures for improved mobility and pain relief.</p>
 
-                </div>
-
-                <div class="bg-white p-5 rounded-xl shadow-lg card-hover border-l-4 border-secondary">
-                    <div class="flex items-center mb-3">
+                    <!-- Slide 4: Robotic Knee Replacement -->
+                    <div class="swiper-slide">
                         <div
-                            class="w-12 h-12 bg-gradient-to-br from-secondary to-blue-400 rounded-lg flex items-center justify-center mr-3">
-                            <i class="fas fa-user-injured text-white text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-bold text-primary" data-en="Hip Replacement Surgery"
-                                data-bn="হিপ প্রতিস্থাপন সার্জারি">Hip Replacement Surgery</h3>
+                            class="bg-white p-5 rounded-xl shadow-lg card-hover border-l-4 border-secondary w-full h-full flex flex-col">
+                            <div class="flex items-center mb-3">
+                                <div
+                                    class="w-12 h-12 bg-gradient-to-br from-secondary to-blue-400 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
+                                    <i class="fas fa-robot text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-primary text-left"
+                                        data-en="Robotic Knee Replacement" data-ar="استبدال الركبة بالروبوت">Robotic
+                                        Knee Replacement</h3>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 mb-3 text-sm text-left flex-grow"
+                                data-en="Precision robotic surgery for faster recovery and better outcomes in knee replacement."
+                                data-ar="جراحة روبوتية دقيقة لتعافي أسرع ونتائج أفضل في استبدال الركبة.">
+                                Precision robotic surgery for faster recovery and better outcomes in knee replacement.
+                            </p>
                         </div>
                     </div>
-                    <p class="text-gray-600 mb-3 text-sm"
-                        data-en="Expert hip replacement surgery for restored mobility and enhanced quality of life."
-                        data-bn="পুনরুদ্ধার গতিশীলতা এবং উন্নত জীবনযাত্রার মানের জন্য বিশেষজ্ঞ হিপ প্রতিস্থাপন সার্জারি।">
-                        Expert hip replacement surgery for restored mobility and enhanced quality of life.</p>
+
+                    <!-- Slide 5: Shoulder Replacement -->
+                    <div class="swiper-slide">
+                        <div
+                            class="bg-white p-5 rounded-xl shadow-lg card-hover border-l-4 border-secondary w-full h-full flex flex-col">
+                            <div class="flex items-center mb-3">
+                                <div
+                                    class="w-12 h-12 bg-gradient-to-br from-secondary to-blue-400 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
+                                    <i class="fas fa-bone text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-primary text-left" data-en="Shoulder Replacement"
+                                        data-ar="استبدال الكتف">Shoulder Replacement</h3>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 mb-3 text-sm text-left flex-grow"
+                                data-en="Relieving pain and restoring motion to the shoulder joint with state-of-the-art replacement surgery."
+                                data-ar="تخفيف الألم واستعادة الحركة لمفصل الكتف بجراحة استبدال حديثة.">
+                                Relieving pain and restoring motion to the shoulder joint with state-of-the-art
+                                replacement
+                                surgery.</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 6: Sports Injury Treatments -->
+                    <div class="swiper-slide">
+                        <div
+                            class="bg-white p-5 rounded-xl shadow-lg card-hover border-l-4 border-secondary w-full h-full flex flex-col">
+                            <div class="flex items-center mb-3">
+                                <div
+                                    class="w-12 h-12 bg-gradient-to-br from-secondary to-blue-400 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
+                                    <i class="fas fa-running text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-primary text-left"
+                                        data-en="Sports Injury Treatments" data-ar="علاجات الإصابات الرياضية">Sports
+                                        Injury Treatments</h3>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 mb-3 text-sm text-left flex-grow"
+                                data-en="Comprehensive treatment for sports-related injuries with advanced rehabilitation techniques."
+                                data-ar="علاج شامل للإصابات المرتبطة بالرياضة بتقنيات إعادة تأهيل متقدمة.">Comprehensive
+                                treatment for sports-related injuries with advanced rehabilitation techniques.</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 7: Shoulder Surgery -->
+                    <div class="swiper-slide">
+                        <div
+                            class="bg-white p-5 rounded-xl shadow-lg card-hover border-l-4 border-secondary w-full h-full flex flex-col">
+                            <div class="flex items-center mb-3">
+                                <div
+                                    class="w-12 h-12 bg-gradient-to-br from-secondary to-blue-400 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
+                                    <i class="fas fa-procedures text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-primary text-left" data-en="Shoulder Surgery"
+                                        data-ar="جراحة الكتف">Shoulder Surgery</h3>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 mb-3 text-sm text-left flex-grow"
+                                data-en="Specialized surgical solutions for a range of shoulder conditions, from rotator cuff tears to instability."
+                                data-ar="حلول جراحية متخصصة لمجموعة من حالات الكتف، من تمزق الكفة المدورة إلى عدم الاستقرار.">
+                                Specialized surgical solutions for a range of shoulder conditions, from rotator cuff
+                                tears
+                                to instability.</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 8: Trauma Surgery -->
+                    <div class="swiper-slide">
+                        <div
+                            class="bg-white p-5 rounded-xl shadow-lg card-hover border-l-4 border-secondary w-full h-full flex flex-col">
+                            <div class="flex items-center mb-3">
+                                <div
+                                    class="w-12 h-12 bg-gradient-to-br from-secondary to-blue-400 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
+                                    <i class="fas fa-briefcase-medical text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-primary text-left" data-en="Trauma Surgery"
+                                        data-ar="جراحة الإصابات">Trauma Surgery</h3>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 mb-3 text-sm text-left flex-grow"
+                                data-en="Expert surgical care for fractures and musculoskeletal injuries resulting from traumatic events."
+                                data-ar="رعاية جراحية متخصصة للكسور والإصابات العضلية الهيكلية الناتجة عن الأحداث الصادمة.">
+                                Expert surgical care for fractures and musculoskeletal injuries resulting from traumatic
+                                events.</p>
+                        </div>
+                    </div>
 
                 </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- Add Navigation -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
         </div>
     </section>
@@ -512,14 +840,14 @@
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-1 bg-secondary mr-4"></div>
                         <span class="text-secondary font-semibold text-sm" data-en="BOOK APPOINTMENT"
-                            data-bn="অ্যাপয়েন্টমেন্ট বুক করুন">BOOK APPOINTMENT</span>
+                            data-ar="احجز موعداً">BOOK APPOINTMENT</span>
                     </div>
                     <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4"
-                        data-en="Schedule Your Consultation Today" data-bn="আজই আপনার পরামর্শের সময় নির্ধারণ করুন">
+                        data-en="Schedule Your Consultation Today" data-ar="حدد موعد استشارتك اليوم">
                         Schedule Your Consultation Today</h2>
                     <p class="text-gray-600 mb-6"
                         data-en="Take the first step towards a pain-free life. Our expert team is ready to provide you with personalized orthopedic care."
-                        data-bn="ব্যথামুক্ত জীবনের দিকে প্রথম পদক্ষেপ নিন। আমাদের বিশেষজ্ঞ দল আপনাকে ব্যক্তিগতকৃত অর্থোপেডিক যত্ন প্রদান করতে প্রস্তুত।">
+                        data-ar="اتخذ الخطوة الأولى نحو حياة خالية من الألم. فريقنا المتخصص جاهز لتزويدك برعاية عظام شخصية.">
                         Take the first step towards a pain-free life. Our expert team is ready to provide you with
                         personalized orthopedic care.</p>
                     <div class="space-y-4">
@@ -527,14 +855,14 @@
                             <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center mr-3">
                                 <i class="fas fa-check text-primary text-sm"></i>
                             </div>
-                            <span class="text-gray-700" data-en="Expert Consultation" data-bn="বিশেষজ্ঞ পরামর্শ">Expert
+                            <span class="text-gray-700" data-en="Expert Consultation" data-ar="استشارة متخصصة">Expert
                                 Consultation</span>
                         </div>
                         <div class="flex items-center">
                             <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center mr-3">
                                 <i class="fas fa-check text-primary text-sm"></i>
                             </div>
-                            <span class="text-gray-700" data-en="Advanced Diagnostics" data-bn="উন্নত নির্ণয়">Advanced
+                            <span class="text-gray-700" data-en="Advanced Diagnostics" data-ar="تشخيصات متقدمة">Advanced
                                 Diagnostics</span>
                         </div>
                         <div class="flex items-center">
@@ -542,7 +870,7 @@
                                 <i class="fas fa-check text-primary text-sm"></i>
                             </div>
                             <span class="text-gray-700" data-en="Personalized Treatment Plan"
-                                data-bn="ব্যক্তিগতকৃত চিকিৎসা পরিকল্পনা">Personalized Treatment Plan</span>
+                                data-ar="خطة علاج شخصية">Personalized Treatment Plan</span>
                         </div>
                     </div>
                 </div>
@@ -554,14 +882,14 @@
                         <div class="grid md:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-sm font-semibold text-primary mb-1" data-en="Full Name"
-                                    data-bn="পূর্ণ নাম">Full Name</label>
+                                    data-ar="الاسم الكامل">Full Name</label>
                                 <input type="text"
                                     class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent text-sm"
                                     placeholder="Enter your full name">
                             </div>
                             <div>
                                 <label class="block text-sm font-semibold text-primary mb-1" data-en="Phone Number"
-                                    data-bn="ফোন নম্বর">Phone Number</label>
+                                    data-ar="رقم الهاتف">Phone Number</label>
                                 <input type="tel"
                                     class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent text-sm"
                                     placeholder="+91 XXXXX XXXXX">
@@ -569,7 +897,7 @@
                         </div>
                         <div>
                             <label class="block text-sm font-semibold text-primary mb-1" data-en="Email Address"
-                                data-bn="ইমেইল ঠিকানা">Email Address</label>
+                                data-ar="عنوان البريد الإلكتروني">Email Address</label>
                             <input type="email"
                                 class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent text-sm"
                                 placeholder="your.email@example.com">
@@ -577,13 +905,13 @@
                         <div class="grid md:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-sm font-semibold text-primary mb-1" data-en="Preferred Date"
-                                    data-bn="পছন্দের তারিখ">Preferred Date</label>
+                                    data-ar="التاريخ المفضل">Preferred Date</label>
                                 <input type="date"
                                     class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent text-sm">
                             </div>
                             <div>
                                 <label class="block text-sm font-semibold text-primary mb-1" data-en="Preferred Time"
-                                    data-bn="পছন্দের সময়">Preferred Time</label>
+                                    data-ar="الوقت المفضل">Preferred Time</label>
                                 <select
                                     class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent text-sm">
                                     <option>Morning (9 AM - 12 PM)</option>
@@ -594,7 +922,7 @@
                         </div>
                         <div>
                             <label class="block text-sm font-semibold text-primary mb-1" data-en="Service Required"
-                                data-bn="প্রয়োজনীয় সেবা">Service Required</label>
+                                data-ar="الخدمة المطلوبة">Service Required</label>
                             <select
                                 class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent text-sm">
                                 <option>General Consultation</option>
@@ -606,14 +934,14 @@
                         </div>
                         <div>
                             <label class="block text-sm font-semibold text-primary mb-1" data-en="Message (Optional)"
-                                data-bn="বার্তা (ঐচ্ছিক)">Message (Optional)</label>
+                                data-ar="رسالة (اختياري)">Message (Optional)</label>
                             <textarea rows="3"
                                 class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent text-sm"
                                 placeholder="Tell us about your condition or any specific requirements"></textarea>
                         </div>
                         <button type="submit"
                             class="w-full bg-secondary text-primary px-6 py-3 rounded-lg font-bold hover:bg-blue-400 transition-colors duration-300 shadow-lg"
-                            data-en="BOOK APPOINTMENT" data-bn="অ্যাপয়েন্টমেন্ট বুক করুন">
+                            data-en="BOOK APPOINTMENT" data-ar="احجز موعداً">
                             BOOK APPOINTMENT
                         </button>
                     </form>
@@ -629,26 +957,152 @@
         <div class="container mx-auto px-4 relative z-10">
             <div class="text-center mb-8">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4" data-en="Say Goodbye to Pain, Hello to mobility."
-                    data-bn="ব্যথাকে বিদায় বলুন, গতিশীলতাকে স্বাগত জানান।">Say Goodbye to Pain, Hello to mobility.</h2>
+                    data-ar="قل وداعاً للألم، مرحباً بالحركة.">Say Goodbye to Pain, Hello to mobility.</h2>
                 <h3 class="text-xl md:text-2xl mb-6 text-secondary"
                     data-en="Best Orthopedic Doctor in India, here to help you live a pain-free, independent healthy life!"
-                    data-bn="ভারতের সেরা অর্থোপেডিক ডাক্তার, আপনাকে ব্যথামুক্ত, স্বাধীন সুস্থ জীবনযাপনে সহায়তা করতে এখানে!">
+                    data-ar="أفضل دكتور عظام في الهند، هنا لمساعدتك على عيش حياة صحية مستقلة خالية من الألم!">
                     Best Orthopedic Doctor in India, here to help you live a pain-free, independent healthy life!</h3>
                 <p class="text-lg mb-6 max-w-4xl mx-auto text-gray-200"
                     data-en="At Impact Orthopedic & Joint Replacement Center, we understand the impact of chronic pain and limited mobility on your life. Our team of world-class specialists, equipped with cutting-edge technology, is dedicated to restoring your freedom and confidence."
-                    data-bn="ইমপ্যাক্ট অর্থোপেডিক অ্যান্ড জয়েন্ট রিপ্লেসমেন্ট সেন্টারে, আমরা আপনার জীবনে দীর্ঘস্থায়ী ব্যথা এবং সীমিত গতিশীলতার প্রভাব বুঝি। অত্যাধুনিক প্রযুক্তিতে সজ্জিত আমাদের বিশ্বমানের বিশেষজ্ঞদের দল আপনার স্বাধীনতা এবং আত্মবিশ্বাস পুনরুদ্ধারে নিবেদিত।">
+                    data-ar="في مركز إمباكت لجراحة العظام واستبدال المفاصل، نتفهم تأثير الألم المزمن والحركة المحدودة على حياتك. فريقنا من المتخصصين العالميين، المجهز بأحدث التقنيات، مكرس لاستعادة حريتك وثقتك.">
                     At Impact Orthopedic & Joint Replacement Center, we understand the impact of chronic pain and
                     limited mobility on your life. Our team of world-class specialists, equipped with cutting-edge
                     technology, is dedicated to restoring your freedom and confidence.</p>
                 <p class="text-lg mb-8 text-secondary"
                     data-en="Embark on your journey to a pain-free life. Schedule your consultation today!"
-                    data-bn="ব্যথামুক্ত জীবনের দিকে আপনার যাত্রা শুরু করুন। আজই আপনার পরামর্শের সময় নির্ধারণ করুন!">
+                    data-ar="انطلق في رحلتك إلى حياة خالية من الألم. حدد موعد استشارتك اليوم!">
                     Embark on your journey to a pain-free life. Schedule your consultation today!</p>
                 <button
                     class="bg-secondary text-primary px-8 py-4 rounded-lg text-xl font-bold hover:bg-blue-400 transition-colors duration-300 shadow-lg"
-                    data-en="BOOK AN APPOINTMENT" data-bn="অ্যাপয়েন্টমেন্ট বুক করুন">
+                    onclick="scrollToForm()" data-en="BOOK AN APPOINTMENT" data-ar="احجز موعداً">
                     BOOK AN APPOINTMENT
                 </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="bg-white rounded-xl shadow-2xl p-6 md:p-10 border border-gray-200">
+        <h2 class="text-4xl font-extrabold text-gray-900 mb-10 text-center" data-en="FREQUENTLY ASKED QUESTIONS"
+            data-ar="الأسئلة الشائعة">
+            FREQUENTLY ASKED QUESTIONS
+        </h2>
+
+        <div class="space-y-4 max-w-6xl mx-auto">
+            <div class="border border-gray-200 rounded-lg overflow-hidden">
+                <button
+                    class="faq-question w-full flex justify-between items-center p-5 bg-gray-50 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50"
+                    aria-expanded="false">
+                    <span class="text-lg font-semibold text-gray-800 text-left"
+                        data-en="Which is the best orthopedic hospital in India?"
+                        data-ar="ما هو أفضل مستشفى عظام في الهند؟">
+                        Which is the best orthopedic hospital in India?
+                    </span>
+                    <svg class="faq-icon w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="faq-answer px-5 text-gray-700 bg-white">
+                    <p data-en="Impact Ortho is known as the best orthopedic hospital in India and is known for its comprehensive care, advanced facilities, and expert medical team."
+                        data-ar="يُعرف إمباكت أورثو بأنه أفضل مستشفى عظام في الهند ويشتهر برعايته الشاملة ومرافقه المتقدمة وفريقه الطبي الخبير.">
+                        Impact Ortho is known as the best orthopedic hospital in India and is known for its
+                        comprehensive
+                        care, advanced facilities, and expert medical team.
+                    </p>
+                </div>
+            </div>
+
+            <div class="border border-gray-200 rounded-lg overflow-hidden">
+                <button
+                    class="faq-question w-full flex justify-between items-center p-5 bg-gray-50 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50"
+                    aria-expanded="false">
+                    <span class="text-lg font-semibold text-gray-800 text-left"
+                        data-en="What makes this hospital the best choice for orthopedic care?"
+                        data-ar="ما الذي يجعل هذا المستشفى الخيار الأفضل لرعاية العظام؟">
+                        What makes this hospital the best choice for orthopedic care?
+                    </span>
+                    <svg class="faq-icon w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="faq-answer px-5 text-gray-700 bg-white">
+                    <p data-en="The hospital is renowned for its state-of-the-art technology, experienced surgeons, and personalized patient care."
+                        data-ar="يشتهر المستشفى بتقنياته الحديثة وجراحيه ذوي الخبرة ورعاية المرضى الشخصية.">
+                        The hospital is renowned for its state-of-the-art technology, experienced surgeons, and
+                        personalized
+                        patient care.
+                    </p>
+                </div>
+            </div>
+
+            <div class="border border-gray-200 rounded-lg overflow-hidden">
+                <button
+                    class="faq-question w-full flex justify-between items-center p-5 bg-gray-50 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50"
+                    aria-expanded="false">
+                    <span class="text-lg font-semibold text-gray-800 text-left"
+                        data-en="Are there comprehensive patient care and rehabilitation programs?"
+                        data-ar="هل توجد برامج شاملة لرعاية المرضى وإعادة التأهيل؟">
+                        Are there comprehensive patient care and rehabilitation programs?
+                    </span>
+                    <svg class="faq-icon w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="faq-answer px-5 text-gray-700 bg-white">
+                    <p data-en="Yes, the hospital offers extensive rehabilitation and follow-up programs to ensure complete recovery and patient satisfaction."
+                        data-ar="نعم، يقدم المستشفى برامج إعادة تأهيل ومتابعة شاملة لضمان التعافي الكامل ورضا المرضى.">
+                        Yes, the hospital offers extensive rehabilitation and follow-up programs to ensure complete
+                        recovery
+                        and patient satisfaction.
+                    </p>
+                </div>
+            </div>
+
+            <div class="border border-gray-200 rounded-lg overflow-hidden">
+                <button
+                    class="faq-question w-full flex justify-between items-center p-5 bg-gray-50 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50"
+                    aria-expanded="false">
+                    <span class="text-lg font-semibold text-gray-800 text-left"
+                        data-en="Does it offer emergency orthopedic care?" data-ar="هل يقدم رعاية عظام طارئة؟">
+                        Does it offer emergency orthopedic care?
+                    </span>
+                    <svg class="faq-icon w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="faq-answer px-5 text-gray-700 bg-white">
+                    <p data-en="Yes, the hospital provides 24/7 emergency orthopedic services to handle urgent medical situations."
+                        data-ar="نعم، يقدم المستشفى خدمات عظام طارئة على مدار الساعة للتعامل مع الحالات الطبية العاجلة.">
+                        Yes, the hospital provides 24/7 emergency orthopedic services to handle urgent medical
+                        situations.
+                    </p>
+                </div>
+            </div>
+
+            <div class="border border-gray-200 rounded-lg overflow-hidden">
+                <button
+                    class="faq-question w-full flex justify-between items-center p-5 bg-gray-50 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50"
+                    aria-expanded="false">
+                    <span class="text-lg font-semibold text-gray-800 text-left"
+                        data-en="How can I schedule an appointment?" data-ar="كيف يمكنني تحديد موعد؟">
+                        How can I schedule an appointment?
+                    </span>
+                    <svg class="faq-icon w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="faq-answer px-5 text-gray-700 bg-white">
+                    <p data-en="Appointments can be scheduled through the hospital’s website, by phone, or by visiting the hospital’s appointment desk."
+                        data-ar="يمكن تحديد المواعيد من خلال موقع المستشفى على الإنترنت أو عبر الهاتف أو عن طريق زيارة مكتب المواعيد في المستشفى.">
+                        Appointments can be scheduled through the hospital’s website, by phone, or by visiting the
+                        hospital’s appointment desk.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -660,12 +1114,12 @@
                 <div class="flex items-center justify-center mb-4">
                     <div class="w-12 h-1 bg-secondary mr-4"></div>
                     <span class="text-secondary font-semibold text-sm" data-en="TESTIMONIALS"
-                        data-bn="প্রশংসাপত্র">TESTIMONIALS</span>
+                        data-ar="الشهادات">TESTIMONIALS</span>
                     <div class="w-12 h-1 bg-secondary ml-4"></div>
                 </div>
                 <h2 class="text-3xl md:text-4xl font-bold text-primary mb-3"
                     data-en="Choose Our Hospital, Choose the Best Care For Yourself"
-                    data-bn="আমাদের হাসপাতাল বেছে নিন, নিজের জন্য সেরা যত্ন বেছে নিন">Choose Our Hospital, Choose the
+                    data-ar="اختر مستشفانا، اختر أفضل رعاية لنفسك">Choose Our Hospital, Choose the
                     Best Care For Yourself</h2>
             </div>
 
@@ -691,7 +1145,7 @@
                             </div>
                             <p class="text-gray-600 italic"
                                 data-en="The robotic knee replacement surgery was a life-changing experience. The precision and care provided by the team at Impact Ortho exceeded my expectations. I'm back to my daily activities with no pain!"
-                                data-bn="রোবোটিক হাঁটু প্রতিস্থাপন সার্জারি একটি জীবন পরিবর্তনকারী অভিজ্ঞতা ছিল। ইমপ্যাক্ট অর্থোর দলের দেওয়া নির্ভুলতা এবং যত্ন আমার প্রত্যাশা ছাড়িয়ে গেছে। আমি কোনো ব্যথা ছাড়াই আমার দৈনন্দিন কাজকর্মে ফিরে এসেছি!">
+                                data-ar="كانت جراحة استبدال الركبة بالروبوت تجربة غيرت حياتي. الدقة والرعاية التي قدمها فريق إمباكت أورثو تجاوزت توقعاتي. لقد عدت إلى أنشطتي اليومية دون ألم!">
                                 "The robotic knee replacement surgery was a life-changing experience. The precision and
                                 care provided by the team at Impact Ortho exceeded my expectations. I'm back to my daily
                                 activities with no pain!"</p>
@@ -717,7 +1171,7 @@
                             </div>
                             <p class="text-gray-600 italic"
                                 data-en="Excellent medical care and professional staff. The hip replacement surgery was successful, and the recovery process was smooth thanks to their comprehensive after-care program."
-                                data-bn="চমৎকার চিকিৎসা সেবা এবং পেশাদার কর্মীরা। হিপ প্রতিস্থাপন সার্জারি সফল হয়েছিল, এবং তাদের ব্যাপক পরবর্তী যত্ন কর্মসূচির জন্য পুনরুদ্ধার প্রক্রিয়া মসৃণ ছিল।">
+                                data-ar="رعاية طبية ممتازة وموظفين محترفين. كانت جراحة استبدال مفصل الورك ناجحة، وكانت عملية التعافي سلسة بفضل برنامج الرعاية اللاحقة الشامل.">
                                 "Excellent medical care and professional staff. The hip replacement surgery was
                                 successful, and the recovery process was smooth thanks to their comprehensive after-care
                                 program."</p>
@@ -743,7 +1197,7 @@
                             </div>
                             <p class="text-gray-600 italic"
                                 data-en="Outstanding sports medicine treatment helped me get back to playing cricket. The doctors understood my needs as an athlete and provided personalized care throughout my recovery."
-                                data-bn="অসাধারণ স্পোর্টস মেডিসিন চিকিৎসা আমাকে ক্রিকেট খেলায় ফিরে যেতে সাহায্য করেছে। ডাক্তাররা একজন ক্রীড়াবিদ হিসেবে আমার প্রয়োজন বুঝেছিলেন এবং আমার পুনরুদ্ধারের সময় ব্যক্তিগতকৃত যত্ন প্রদান করেছিলেন।">
+                                data-ar="ساعدتني علاجات الطب الرياضي المتميزة في العودة إلى لعب الكريكيت. فهم الأطباء احتياجاتي كرياضي وقدموا رعاية شخصية طوال فترة تعافي.">
                                 "Outstanding sports medicine treatment helped me get back to playing cricket. The
                                 doctors understood my needs as an athlete and provided personalized care throughout my
                                 recovery."</p>
@@ -769,7 +1223,7 @@
                             </div>
                             <p class="text-gray-600 italic"
                                 data-en="The world-class infrastructure and expert medical team made my knee replacement surgery a success. I highly recommend Impact Ortho for anyone seeking quality orthopedic care."
-                                data-bn="বিশ্বমানের অবকাঠামো এবং বিশেষজ্ঞ চিকিৎসা দল আমার হাঁটু প্রতিস্থাপন সার্জারিকে সফল করেছে। মানসম্পন্ন অর্থোপেডিক যত্নের জন্য যে কেউ খুঁজছেন তাদের জন্য আমি ইমপ্যাক্ট অর্থোকে অত্যন্ত সুপারিশ করি।">
+                                data-ar="جعلت البنية التحتية ذات المستوى العالمي والفريق الطبي الخبير جراحة استبدال الركبة الخاصة بي ناجحة. أوصي بشدة بـ Impact Ortho لأي شخص يبحث عن رعاية عظام عالية الجودة.">
                                 "The world-class infrastructure and expert medical team made my knee replacement surgery
                                 a success. I highly recommend Impact Ortho for anyone seeking quality orthopedic care."
                             </p>
@@ -793,22 +1247,22 @@
         <div class="container mx-auto px-4 text-center">
             <div class="max-w-4xl mx-auto">
                 <h2 class="text-3xl md:text-4xl font-bold mb-6" data-en="Ready to Start Your Journey to Recovery?"
-                    data-bn="পুনরুদ্ধারের দিকে আপনার যাত্রা শুরু করতে প্রস্তুত?">Ready to Start Your Journey to
+                    data-ar="هل أنت مستعد لبدء رحلتك إلى التعافي؟">Ready to Start Your Journey to
                     Recovery?</h2>
                 <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
                     <button
                         class="bg-primary text-white px-8 py-4 rounded-lg text-xl font-bold hover:bg-blue-900 transition-colors duration-300 shadow-lg"
-                        data-en="BOOK AN APPOINTMENT" data-bn="অ্যাপয়েন্টমেন্ট বুক করুন">
+                        onclick="scrollToForm()" data-en="BOOK AN APPOINTMENT" data-ar="احجز موعداً">
                         BOOK AN APPOINTMENT
                     </button>
                     <div class="text-center">
-                        <div class="text-lg font-semibold mb-2" data-en="BOOK THROUGH CALL"
-                            data-bn="কলের মাধ্যমে বুক করুন">BOOK THROUGH CALL</div>
+                        <div class="text-lg font-semibold mb-2" data-en="BOOK THROUGH CALL" data-ar="احجز عبر المكالمة">
+                            BOOK THROUGH CALL</div>
                         <a href="tel:+919494559848"
                             class="text-2xl font-bold hover:text-blue-900 transition-colors duration-300">+91 949 455
                             9848</a>
                         <div class="text-sm" data-en="Do a Quick Call For Appointment"
-                            data-bn="অ্যাপয়েন্টমেন্টের জন্য একটি দ্রুত কল করুন">Do a Quick Call For Appointment</div>
+                            data-ar="قم بإجراء مكالمة سريعة لتحديد موعد">Do a Quick Call For Appointment</div>
                     </div>
                 </div>
             </div>
@@ -828,7 +1282,7 @@
                     </div>
                     <p class="text-gray-300 text-sm"
                         data-en="At Impact Orthopedic & Joint Replacement Center, we are committed to providing you with the highest quality care and helping you achieve optimal health and mobility."
-                        data-bn="ইমপ্যাক্ট অর্থোপেডিক অ্যান্ড জয়েন্ট রিপ্লেসমেন্ট সেন্টারে, আমরা আপনাকে সর্বোচ্চ মানের যত্ন প্রদান এবং সর্বোত্তম স্বাস্থ্য ও গতিশীলতা অর্জনে সহায়তা করতে প্রতিশ্রুতিবদ্ধ।">
+                        data-ar="في مركز إمباكت لجراحة العظام واستبدال المفاصل، نحن ملتزمون بتزويدك بأعلى جودة من الرعاية ومساعدتك على تحقيق الصحة والحركة المثلى.">
                         At Impact Orthopedic & Joint Replacement Center, we are committed to providing you with the
                         highest quality care and helping you achieve optimal health and mobility.</p>
                 </div>
@@ -836,13 +1290,13 @@
                 <!-- Contact Information -->
                 <div>
                     <h3 class="text-lg font-bold mb-3 text-secondary" data-en="Contact Information"
-                        data-bn="যোগাযোগের তথ্য">Contact Information</h3>
+                        data-ar="معلومات الاتصال">Contact Information</h3>
                     <div class="space-y-2 text-sm">
                         <div class="flex items-start">
                             <i class="fas fa-map-marker-alt text-secondary mr-2 mt-1"></i>
                             <span
                                 data-en="Apollo Hospitals, Rd Number 72, opposite Bharatiya Vidya Bhavan School, Film Nagar, Hyderabad, Telangana 500033"
-                                data-bn="অ্যাপোলো হাসপাতাল, রোড নম্বর ৭২, ভারতীয় বিদ্যা ভবন স্কুলের বিপরীতে, ফিল্ম নগর, হায়দরাবাদ, তেলেঙ্গানা ৫০০০৩৩">Apollo
+                                data-ar="مستشفيات أبولو، طريق رقم 72، مقابل مدرسة بهاراتيا فيديا بهافان، فيلم ناجار، حيدر أباد، تيلانجانا 500033">Apollo
                                 Hospitals, Rd Number 72, opposite Bharatiya Vidya Bhavan School, Film Nagar, Hyderabad,
                                 Telangana 500033</span>
                         </div>
@@ -860,42 +1314,42 @@
 
                 <!-- Quick Links -->
                 <div>
-                    <h3 class="text-lg font-bold mb-3 text-secondary" data-en="Our Specialities"
-                        data-bn="আমাদের বিশেষত্ব">Our Specialities</h3>
+                    <h3 class="text-lg font-bold mb-3 text-secondary" data-en="Our Specialities" data-ar="تخصصاتنا">Our
+                        Specialities</h3>
                     <div class="space-y-1 text-sm">
                         <div><a href="#" class="hover:text-secondary transition-colors" data-en="Arthroscopy"
-                                data-bn="আর্থ্রোস্কোপি">Arthroscopy</a></div>
+                                data-ar="تنظير المفصل">Arthroscopy</a></div>
                         <div><a href="#" class="hover:text-secondary transition-colors"
-                                data-en="Hip Replacement Surgery" data-bn="হিপ প্রতিস্থাপন সার্জারি">Hip Replacement
+                                data-en="Hip Replacement Surgery" data-ar="جراحة استبدال مفصل الورك">Hip Replacement
                                 Surgery</a></div>
                         <div><a href="#" class="hover:text-secondary transition-colors"
-                                data-en="Knee Replacement Surgery" data-bn="হাঁটু প্রতিস্থাপন সার্জারি">Knee Replacement
+                                data-en="Knee Replacement Surgery" data-ar="جراحة استبدال مفصل الركبة">Knee Replacement
                                 Surgery</a></div>
                         <div><a href="#" class="hover:text-secondary transition-colors"
-                                data-en="Robotic Knee Replacement" data-bn="রোবোটিক হাঁটু প্রতিস্থাপন">Robotic Knee
+                                data-en="Robotic Knee Replacement" data-ar="استبدال الركبة بالروبوت">Robotic Knee
                                 Replacement</a></div>
                         <div><a href="#" class="hover:text-secondary transition-colors" data-en="Shoulder Replacement"
-                                data-bn="কাঁধ প্রতিস্থাপন">Shoulder Replacement</a></div>
+                                data-ar="استبدال الكتف">Shoulder Replacement</a></div>
                         <div><a href="#" class="hover:text-secondary transition-colors"
-                                data-en="Sports Injury Treatments" data-bn="ক্রীড়া আঘাতের চিকিৎসা">Sports Injury
+                                data-en="Sports Injury Treatments" data-ar="علاجات الإصابات الرياضية">Sports Injury
                                 Treatments</a></div>
                     </div>
                 </div>
 
                 <!-- Our Timings -->
                 <div>
-                    <h3 class="text-lg font-bold mb-3 text-secondary" data-en="Our Timings" data-bn="আমাদের সময়সূচী">
+                    <h3 class="text-lg font-bold mb-3 text-secondary" data-en="Our Timings" data-ar="مواعيدنا">
                         Our Timings</h3>
                     <div class="space-y-1 text-sm">
                         <div data-en="Monday - Friday: 9:00 AM - 6:00 PM"
-                            data-bn="সোমবার - শুক্রবার: সকাল ৯:০০ - সন্ধ্যা ৬:০০">Monday - Friday: 9:00 AM - 6:00 PM
+                            data-ar="الاثنين - الجمعة: 9:00 صباحًا - 6:00 مساءً">Monday - Friday: 9:00 AM - 6:00 PM
                         </div>
-                        <div data-en="Saturday: 9:00 AM - 4:00 PM" data-bn="শনিবার: সকাল ৯:০০ - বিকাল ৪:০০">Saturday:
+                        <div data-en="Saturday: 9:00 AM - 4:00 PM" data-ar="السبت: 9:00 صباحًا - 4:00 مساءً">Saturday:
                             9:00 AM - 4:00 PM</div>
-                        <div data-en="Sunday: 10:00 AM - 2:00 PM" data-bn="রবিবার: সকাল ১০:০০ - দুপুর ২:০০">Sunday:
+                        <div data-en="Sunday: 10:00 AM - 2:00 PM" data-ar="الأحد: 10:00 صباحًا - 2:00 مساءً">Sunday:
                             10:00 AM - 2:00 PM</div>
                         <div class="mt-3">
-                            <h4 class="font-semibold mb-2" data-en="Follow Us" data-bn="আমাদের অনুসরণ করুন">Follow Us
+                            <h4 class="font-semibold mb-2" data-en="Follow Us" data-ar="تابعنا">Follow Us
                             </h4>
                             <div class="flex space-x-3">
                                 <a href="#" class="text-secondary hover:text-white transition-colors"><i
@@ -914,10 +1368,10 @@
             <div class="border-t border-gray-600 mt-6 pt-6 text-center text-sm">
                 <div class="flex flex-col md:flex-row justify-between items-center">
                     <div data-en="© 2024 Impact Ortho & Joint Replacement Center. All rights reserved."
-                        data-bn="© ২০২ৄ ইমপ্যাক্ট অর্থো অ্যান্ড জয়েন্ট রিপ্লেসমেন্ট সেন্টার। সমস্ত অধিকার সংরক্ষিত।">©
+                        data-ar="© 2024 مركز إمباكت لجراحة العظام واستبدال المفاصل. كل الحقوق محفوظة.">©
                         2024 Impact Ortho & Joint Replacement Center. All rights reserved.</div>
                     <div data-en="Design & Developed by Branding Pioneers"
-                        data-bn="ডিজাইন এবং উন্নয়ন ব্র্যান্ডিং পায়োনিয়ার্স দ্বারা">Design & Developed by <span
+                        data-ar="تصميم وتطوير بواسطة Branding Pioneers">Design & Developed by <span
                             class="text-secondary">Branding Pioneers</span></div>
                 </div>
             </div>
@@ -931,22 +1385,40 @@
         const langText = document.getElementById('lang-text');
 
         function translatePage(lang) {
-            const elements = document.querySelectorAll('[data-en][data-bn]');
+            const elements = document.querySelectorAll('[data-en][data-ar]');
             elements.forEach(element => {
-                if (lang === 'bn') {
-                    element.textContent = element.getAttribute('data-bn');
+                if (lang === 'ar') {
+                    element.textContent = element.getAttribute('data-ar');
                 } else {
                     element.textContent = element.getAttribute('data-en');
                 }
             });
+
+            // Update document direction for Arabic
+            if (lang === 'ar') {
+                document.body.setAttribute('dir', 'rtl');
+            } else {
+                document.body.setAttribute('dir', 'ltr');
+            }
         }
 
         langToggle.addEventListener('click', () => {
-            currentLang = currentLang === 'en' ? 'bn' : 'en';
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
             translatePage(currentLang);
-            langText.textContent = currentLang === 'en' ? 'বাংলা' : 'English';
-            document.getElementById('html-root').setAttribute('lang', currentLang === 'en' ? 'en' : 'bn');
+            langText.textContent = currentLang === 'en' ? 'العربية' : 'English';
+            document.getElementById('html-root').setAttribute('lang', currentLang === 'en' ? 'en' : 'ar');
         });
+
+        // Function to scroll to contact form
+        function scrollToForm() {
+            const formSection = document.getElementById('patient-info');
+            if (formSection) {
+                formSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
 
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -1037,7 +1509,63 @@
         // Form submission (placeholder - you can connect your own form handler)
         document.querySelector('form').addEventListener('submit', function (e) {
             e.preventDefault();
-            alert(currentLang === 'en' ? 'Form submitted! We will contact you soon.' : 'ফর্ম জমা দেওয়া হয়েছে! আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।');
+            alert(currentLang === 'en' ? 'Form submitted! We will contact you soon.' : 'تم إرسال النموذج! سنتواصل معك قريباً.');
+        });
+    </script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                // when window width is >= 640px
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                // when window width is >= 768px
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+                // when window width is >= 1024px
+                1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 30,
+                },
+            },
+        });
+        // --- Dropdown FAQ Functionality ---
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.closest('.border'); // Find the parent FAQ item div
+                const answer = faqItem.querySelector('.faq-answer');
+                const icon = faqItem.querySelector('.faq-icon');
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+                // Close all other open answers
+                document.querySelectorAll('.faq-answer.open').forEach(openAnswer => {
+                    if (openAnswer !== answer) {
+                        openAnswer.classList.remove('open');
+                        openAnswer.previousElementSibling.setAttribute('aria-expanded', 'false');
+                        openAnswer.previousElementSibling.querySelector('.faq-icon').classList.remove('rotate');
+                    }
+                });
+
+                // Toggle the clicked answer
+                answer.classList.toggle('open');
+                button.setAttribute('aria-expanded', !isExpanded);
+                icon.classList.toggle('rotate');
+            });
         });
     </script>
 </body>
