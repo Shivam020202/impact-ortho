@@ -84,7 +84,7 @@
         body {
             font-family: "Inter", sans-serif;
             /* Add some padding to the bottom of the body to prevent content from being hidden by the fixed tab bar */
-            padding-bottom: 80px;
+            /* padding-bottom: 80px; */
             /* Adjust based on tab bar height */
         }
 
@@ -123,11 +123,6 @@
         }
     </style>
     <style>
-        /* Custom styles for the page */
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-
         /* Defining custom colors used in the original code */
         .bg-primary {
             background-color: #1E40AF;
@@ -380,11 +375,9 @@
                         <!-- <span class="text-secondary" data-en="Sports Medicine" data-ar="طب الرياضة">Sports
                             Medicine</span> -->
                     </h1>
-                    <p class="text-lg mb-6 text-gray-200"
-                        data-en="Advanced orthopedic care with cutting-edge technology and compassionate treatment for your complete recovery."
-                        data-ar="رعاية عظام متقدمة بأحدث التقنيات وعلاج رحيم لشفائك التام.">
-                        Advanced orthopedic care with cutting-edge technology and compassionate treatment for your
-                        complete recovery.</p>
+                    <p class="text-lg mb-6 text-gray-200" data-en="Embark on your journey to a pain-free life"
+                        data-ar="ابدأ رحلتك نحو حياة خالية من الألم">
+                        Embark on your journey to a pain-free life</p>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <button
                             class="bg-secondary text-primary px-6 py-3 rounded-lg text-lg font-bold hover:bg-blue-400 transition-colors duration-300 shadow-lg"
@@ -401,6 +394,156 @@
                 <div class="hidden lg:block">
                     <img src="assets/orthopedic.jpg" alt="Doctor with Patient"
                         class="w-full h-auto rounded-lg shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Stats -->
+    <div class="container mx-auto mt-10 bg-gradient-to-r from-primary to-blue-900 rounded-xl p-6 text-white">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            <div class="p-3">
+                <div class="text-3xl md:text-4xl font-bold text-secondary mb-1">25,000+</div>
+                <div class="text-gray-200 text-sm" data-en="Orthopedic Surgeries" data-ar="جراحات العظام">
+                    Orthopedic Surgeries</div>
+            </div>
+            <div class="p-3">
+                <div class="text-3xl md:text-4xl font-bold text-secondary mb-1">3,000+</div>
+                <div class="text-gray-200 text-sm" data-en="Knee Replacements" data-ar="استبدال الركبة">Knee
+                    Replacements</div>
+            </div>
+            <div class="p-3">
+                <div class="text-3xl md:text-4xl font-bold text-secondary mb-1">40+</div>
+                <div class="text-gray-200 text-sm" data-en="Rewards" data-ar="الجوائز">Rewards</div>
+            </div>
+            <div class="p-3">
+                <div class="text-3xl md:text-4xl font-bold text-secondary mb-1">40,000+</div>
+                <div class="text-gray-200 text-sm" data-en="Happy Patients" data-ar="مرضى سعداء">Happy
+                    Patients</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section id="specialities" class="py-12 overflow-hidden relative bg-white rounded-lg shadow-md ">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <div class="flex items-center justify-center mb-4">
+                    <div class="w-12 h-1 bg-secondary mr-4"></div>
+                    <span class="text-secondary font-semibold text-sm" data-en="OUR SERVICES" data-ar="خدماتنا">OUR
+                        SERVICES</span>
+                    <div class="w-12 h-1 bg-secondary ml-4"></div>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-3" data-en="Our Orthopaedic Services In India"
+                    data-ar="خدماتنا العظمية في الهند">Our Orthopaedic Services In India</h2>
+            </div>
+
+            <!-- Updated Grid Layout for Services -->
+            <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4  gap-6">
+                <!-- Service 1: Arthroscopy -->
+                <div
+                    class="bg-white p-4 rounded-xl shadow-lg card-hover border-l-4 border-secondary flex flex-col items-center justify-center text-center">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-secondary to-blue-400 rounded-full flex items-center justify-center mb-3">
+                        <i class="fas fa-search-plus text-white text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold text-primary" data-en="Arthroscopy" data-ar="تنظير المفصل">
+                            Arthroscopy</h3>
+                    </div>
+                </div>
+
+                <!-- Service 2: Hip Replacement Surgery -->
+                <div
+                    class="bg-white p-4 rounded-xl shadow-lg card-hover border-l-4 border-secondary flex flex-col items-center justify-center text-center">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-secondary to-blue-400 rounded-full flex items-center justify-center mb-3">
+                        <i class="fas fa-briefcase-medical text-white text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold text-primary" data-en="Trauma Surgery" data-ar="جراحة الإصابات">
+                            Trauma Surgery</h3>
+                    </div>
+                </div>
+
+
+                <!-- Service 3: Knee Replacement Surgery -->
+                <div
+                    class="bg-white p-4 rounded-xl shadow-lg card-hover border-l-4 border-secondary flex flex-col items-center justify-center text-center">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-secondary to-blue-400 rounded-full flex items-center justify-center mb-3">
+                        <i class="fas fa-bone text-white text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold text-primary" data-en="Knee Replacement Surgery"
+                            data-ar="جراحة استبدال مفصل الركبة">Knee Replacement Surgery</h3>
+                    </div>
+                </div>
+
+                <!-- Service 4: Robotic Knee Replacement -->
+                <div
+                    class="bg-white p-4 rounded-xl shadow-lg card-hover border-l-4 border-secondary flex flex-col items-center justify-center text-center">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-secondary to-blue-400 rounded-full flex items-center justify-center mb-3">
+                        <i class="fas fa-robot text-white text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold text-primary" data-en="Robotic Knee Replacement"
+                            data-ar="استبدال الركبة بالروبوت">Robotic Knee Replacement</h3>
+                    </div>
+                </div>
+
+                <!-- Service 5: Shoulder Replacement -->
+                <div
+                    class="bg-white p-4 rounded-xl shadow-lg card-hover border-l-4 border-secondary flex flex-col items-center justify-center text-center">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-secondary to-blue-400 rounded-full flex items-center justify-center mb-3">
+                        <i class="fas fa-bone text-white text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold text-primary" data-en="Shoulder Replacement"
+                            data-ar="استبدال الكتف">
+                            Shoulder Replacement</h3>
+                    </div>
+                </div>
+
+                <!-- Service 6: Sports Injury Treatments -->
+                <div
+                    class="bg-white p-4 rounded-xl shadow-lg card-hover border-l-4 border-secondary flex flex-col items-center justify-center text-center">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-secondary to-blue-400 rounded-full flex items-center justify-center mb-3">
+                        <i class="fas fa-running text-white text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold text-primary" data-en="Sports Injury Treatments"
+                            data-ar="علاجات الإصابات الرياضية">Sports Injury Treatments</h3>
+                    </div>
+                </div>
+
+                <!-- Service 7: Shoulder Surgery -->
+                <div
+                    class="bg-white p-4 rounded-xl shadow-lg card-hover border-l-4 border-secondary flex flex-col items-center justify-center text-center">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-secondary to-blue-400 rounded-full flex items-center justify-center mb-3">
+                        <i class="fas fa-procedures text-white text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold text-primary" data-en="Shoulder Surgery" data-ar="جراحة الكتف">
+                            Shoulder Surgery</h3>
+                    </div>
+                </div>
+
+                <!-- Service 8: Trauma Surgery -->
+                <div
+                    class="bg-white p-4 rounded-xl shadow-lg card-hover border-l-4 border-secondary flex flex-col items-center justify-center text-center">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-secondary to-blue-400 rounded-full flex items-center justify-center mb-3">
+                        <i class="fas fa-user-injured text-white text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold text-primary" data-en="Hip Replacement Surgery"
+                            data-ar="جراحة استبدال مفصل الورك">Hip Replacement Surgery</h3>
+                    </div>
                 </div>
             </div>
         </div>
@@ -581,30 +724,7 @@
                 </div>
             </div>
 
-            <!-- Key Stats -->
-            <div class="bg-gradient-to-r from-primary to-blue-900 rounded-xl p-6 text-white">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                    <div class="p-3">
-                        <div class="text-3xl md:text-4xl font-bold text-secondary mb-1">25,000+</div>
-                        <div class="text-gray-200 text-sm" data-en="Orthopedic Surgeries" data-ar="جراحات العظام">
-                            Orthopedic Surgeries</div>
-                    </div>
-                    <div class="p-3">
-                        <div class="text-3xl md:text-4xl font-bold text-secondary mb-1">3,000+</div>
-                        <div class="text-gray-200 text-sm" data-en="Knee Replacements" data-ar="استبدال الركبة">Knee
-                            Replacements</div>
-                    </div>
-                    <div class="p-3">
-                        <div class="text-3xl md:text-4xl font-bold text-secondary mb-1">40+</div>
-                        <div class="text-gray-200 text-sm" data-en="Rewards" data-ar="الجوائز">Rewards</div>
-                    </div>
-                    <div class="p-3">
-                        <div class="text-3xl md:text-4xl font-bold text-secondary mb-1">40,000+</div>
-                        <div class="text-gray-200 text-sm" data-en="Happy Patients" data-ar="مرضى سعداء">Happy
-                            Patients</div>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </section>
 
@@ -667,133 +787,8 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="specialities" class="py-12 overflow-hidden relative bg-white rounded-lg shadow-md mt-16">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <div class="flex items-center justify-center mb-4">
-                    <div class="w-12 h-1 bg-secondary mr-4"></div>
-                    <span class="text-secondary font-semibold text-sm" data-en="OUR SERVICES" data-ar="خدماتنا">OUR
-                        SERVICES</span>
-                    <div class="w-12 h-1 bg-secondary ml-4"></div>
-                </div>
-                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-3" data-en="Our Orthopaedic Services In India"
-                    data-ar="خدماتنا العظمية في الهند">Our Orthopaedic Services In India</h2>
-            </div>
-
-            <!-- Updated Grid Layout for Services -->
-            <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4  gap-6">
-                <!-- Service 1: Arthroscopy -->
-                <div
-                    class="bg-white p-4 rounded-xl shadow-lg card-hover border-l-4 border-secondary flex flex-col items-center justify-center text-center">
-                    <div
-                        class="w-16 h-16 bg-gradient-to-br from-secondary to-blue-400 rounded-full flex items-center justify-center mb-3">
-                        <i class="fas fa-search-plus text-white text-2xl"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-base font-bold text-primary" data-en="Arthroscopy" data-ar="تنظير المفصل">
-                            Arthroscopy</h3>
-                    </div>
-                </div>
-
-                <!-- Service 2: Hip Replacement Surgery -->
-                <div
-                    class="bg-white p-4 rounded-xl shadow-lg card-hover border-l-4 border-secondary flex flex-col items-center justify-center text-center">
-                    <div
-                        class="w-16 h-16 bg-gradient-to-br from-secondary to-blue-400 rounded-full flex items-center justify-center mb-3">
-                        <i class="fas fa-briefcase-medical text-white text-2xl"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-base font-bold text-primary" data-en="Trauma Surgery" data-ar="جراحة الإصابات">
-                            Trauma Surgery</h3>
-                    </div>
-                </div>
-
-
-                <!-- Service 3: Knee Replacement Surgery -->
-                <div
-                    class="bg-white p-4 rounded-xl shadow-lg card-hover border-l-4 border-secondary flex flex-col items-center justify-center text-center">
-                    <div
-                        class="w-16 h-16 bg-gradient-to-br from-secondary to-blue-400 rounded-full flex items-center justify-center mb-3">
-                        <i class="fas fa-bone text-white text-2xl"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-base font-bold text-primary" data-en="Knee Replacement Surgery"
-                            data-ar="جراحة استبدال مفصل الركبة">Knee Replacement Surgery</h3>
-                    </div>
-                </div>
-
-                <!-- Service 4: Robotic Knee Replacement -->
-                <div
-                    class="bg-white p-4 rounded-xl shadow-lg card-hover border-l-4 border-secondary flex flex-col items-center justify-center text-center">
-                    <div
-                        class="w-16 h-16 bg-gradient-to-br from-secondary to-blue-400 rounded-full flex items-center justify-center mb-3">
-                        <i class="fas fa-robot text-white text-2xl"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-base font-bold text-primary" data-en="Robotic Knee Replacement"
-                            data-ar="استبدال الركبة بالروبوت">Robotic Knee Replacement</h3>
-                    </div>
-                </div>
-
-                <!-- Service 5: Shoulder Replacement -->
-                <div
-                    class="bg-white p-4 rounded-xl shadow-lg card-hover border-l-4 border-secondary flex flex-col items-center justify-center text-center">
-                    <div
-                        class="w-16 h-16 bg-gradient-to-br from-secondary to-blue-400 rounded-full flex items-center justify-center mb-3">
-                        <i class="fas fa-bone text-white text-2xl"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-base font-bold text-primary" data-en="Shoulder Replacement"
-                            data-ar="استبدال الكتف">
-                            Shoulder Replacement</h3>
-                    </div>
-                </div>
-
-                <!-- Service 6: Sports Injury Treatments -->
-                <div
-                    class="bg-white p-4 rounded-xl shadow-lg card-hover border-l-4 border-secondary flex flex-col items-center justify-center text-center">
-                    <div
-                        class="w-16 h-16 bg-gradient-to-br from-secondary to-blue-400 rounded-full flex items-center justify-center mb-3">
-                        <i class="fas fa-running text-white text-2xl"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-base font-bold text-primary" data-en="Sports Injury Treatments"
-                            data-ar="علاجات الإصابات الرياضية">Sports Injury Treatments</h3>
-                    </div>
-                </div>
-
-                <!-- Service 7: Shoulder Surgery -->
-                <div
-                    class="bg-white p-4 rounded-xl shadow-lg card-hover border-l-4 border-secondary flex flex-col items-center justify-center text-center">
-                    <div
-                        class="w-16 h-16 bg-gradient-to-br from-secondary to-blue-400 rounded-full flex items-center justify-center mb-3">
-                        <i class="fas fa-procedures text-white text-2xl"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-base font-bold text-primary" data-en="Shoulder Surgery" data-ar="جراحة الكتف">
-                            Shoulder Surgery</h3>
-                    </div>
-                </div>
-
-                <!-- Service 8: Trauma Surgery -->
-                <div
-                    class="bg-white p-4 rounded-xl shadow-lg card-hover border-l-4 border-secondary flex flex-col items-center justify-center text-center">
-                    <div
-                        class="w-16 h-16 bg-gradient-to-br from-secondary to-blue-400 rounded-full flex items-center justify-center mb-3">
-                        <i class="fas fa-user-injured text-white text-2xl"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-base font-bold text-primary" data-en="Hip Replacement Surgery"
-                            data-ar="جراحة استبدال مفصل الورك">Hip Replacement Surgery</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Appointment Form Section -->
-    <section id="patient-info" class="py-12 bg-white">
+    <section id="patient-info" class="container mx-auto py-12 bg-white">
         <div class="container mx-auto px-4">
             <div class="grid lg:grid-cols-2 gap-8 items-center">
                 <div>
@@ -910,39 +905,8 @@
         </div>
     </section>
 
-    <!-- Why Choose Us Section -->
-    <section
-        class="py-12 bg-gradient-to-br from-primary via-blue-900 to-medical-800 text-white relative overflow-hidden">
-        <div class="absolute inset-0 bg-medical-pattern opacity-10"></div>
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="text-center mb-8">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4" data-en="Say Goodbye to Pain, Hello to mobility."
-                    data-ar="قل وداعاً للألم، مرحباً بالحركة.">Say Goodbye to Pain, Hello to mobility.</h2>
-                <h3 class="text-xl md:text-2xl mb-6 text-secondary"
-                    data-en="Best Orthopedic Doctor in India, here to help you live a pain-free, independent healthy life!"
-                    data-ar="أفضل دكتور عظام في الهند، هنا لمساعدتك على عيش حياة صحية مستقلة خالية من الألم!">
-                    Best Orthopedic Doctor in India, here to help you live a pain-free, independent healthy life!</h3>
-                <p class="text-lg mb-6 max-w-4xl mx-auto text-gray-200"
-                    data-en="At Impact Orthopedic & Joint Replacement Center, we understand the impact of chronic pain and limited mobility on your life. Our team of world-class specialists, equipped with cutting-edge technology, is dedicated to restoring your freedom and confidence."
-                    data-ar="في مركز إمباكت لجراحة العظام واستبدال المفاصل، نتفهم تأثير الألم المزمن والحركة المحدودة على حياتك. فريقنا من المتخصصين العالميين، المجهز بأحدث التقنيات، مكرس لاستعادة حريتك وثقتك.">
-                    At Impact Orthopedic & Joint Replacement Center, we understand the impact of chronic pain and
-                    limited mobility on your life. Our team of world-class specialists, equipped with cutting-edge
-                    technology, is dedicated to restoring your freedom and confidence.</p>
-                <p class="text-lg mb-8 text-secondary"
-                    data-en="Embark on your journey to a pain-free life. Schedule your consultation today!"
-                    data-ar="انطلق في رحلتك إلى حياة خالية من الألم. حدد موعد استشارتك اليوم!">
-                    Embark on your journey to a pain-free life. Schedule your consultation today!</p>
-                <button
-                    class="bg-secondary text-primary px-8 py-4 rounded-lg text-xl font-bold hover:bg-blue-400 transition-colors duration-300 shadow-lg"
-                    onclick="scrollToForm()" data-en="BOOK AN APPOINTMENT" data-ar="احجز موعداً">
-                    BOOK AN APPOINTMENT
-                </button>
-            </div>
-        </div>
-    </section>
-
     <!-- FAQ -->
-    <section class="bg-white rounded-xl shadow-2xl p-6 md:p-10 border border-gray-200">
+    <section class="bg-white  p-6 md:p-10 mb-10 ">
         <h2 class="text-4xl font-extrabold text-gray-900 mb-10 text-center" data-en="FREQUENTLY ASKED QUESTIONS"
             data-ar="الأسئلة الشائعة">
             FREQUENTLY ASKED QUESTIONS
@@ -1063,6 +1027,37 @@
                         hospital’s appointment desk.
                     </p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section
+        class=" py-12  bg-gradient-to-br from-primary via-blue-900 to-medical-800 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-medical-pattern opacity-10"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" data-en="Say Goodbye to Pain, Hello to mobility."
+                    data-ar="قل وداعاً للألم، مرحباً بالحركة.">Say Goodbye to Pain, Hello to mobility.</h2>
+                <h3 class="text-xl md:text-2xl mb-6 text-secondary"
+                    data-en="Best Orthopedic Doctor in India, here to help you live a pain-free, independent healthy life!"
+                    data-ar="أفضل دكتور عظام في الهند، هنا لمساعدتك على عيش حياة صحية مستقلة خالية من الألم!">
+                    Best Orthopedic Doctor in India, here to help you live a pain-free, independent healthy life!</h3>
+                <p class="text-lg mb-6 max-w-4xl mx-auto text-gray-200"
+                    data-en="At Impact Orthopedic & Joint Replacement Center, we understand the impact of chronic pain and limited mobility on your life. Our team of world-class specialists, equipped with cutting-edge technology, is dedicated to restoring your freedom and confidence."
+                    data-ar="في مركز إمباكت لجراحة العظام واستبدال المفاصل، نتفهم تأثير الألم المزمن والحركة المحدودة على حياتك. فريقنا من المتخصصين العالميين، المجهز بأحدث التقنيات، مكرس لاستعادة حريتك وثقتك.">
+                    At Impact Orthopedic & Joint Replacement Center, we understand the impact of chronic pain and
+                    limited mobility on your life. Our team of world-class specialists, equipped with cutting-edge
+                    technology, is dedicated to restoring your freedom and confidence.</p>
+                <p class="text-lg mb-8 text-secondary"
+                    data-en="Embark on your journey to a pain-free life. Schedule your consultation today!"
+                    data-ar="انطلق في رحلتك إلى حياة خالية من الألم. حدد موعد استشارتك اليوم!">
+                    Embark on your journey to a pain-free life. Schedule your consultation today!</p>
+                <button
+                    class="bg-secondary text-primary px-8 py-4 rounded-lg text-xl font-bold hover:bg-blue-400 transition-colors duration-300 shadow-lg"
+                    onclick="scrollToForm()" data-en="BOOK AN APPOINTMENT" data-ar="احجز موعداً">
+                    BOOK AN APPOINTMENT
+                </button>
             </div>
         </div>
     </section>
@@ -1228,6 +1223,7 @@
             </div>
         </div>
     </section>
+
     <!-- Bottom Tab Bar -->
     <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t border-gray-200 z-50">
         <div class="container mx-auto h-16 flex justify-around items-center">
