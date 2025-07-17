@@ -835,19 +835,20 @@
                 <!-- Appointment Form -->
                 <div
                     class="bg-gradient-to-br from-medical-50 to-blue-50 p-6 rounded-xl shadow-lg border border-medical-100">
-                    <form class="space-y-4">
+                    <form accept-charset="UTF-8" class="space-y-4"
+                        action="https://app.formester.com/forms/7Q4FkXtqd/submissions" method="post">
                         <div class="grid md:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-sm font-semibold text-primary mb-1" data-en="Full Name"
                                     data-ar="الاسم الكامل">Full Name</label>
-                                <input type="text"
+                                <input type="text" name="full_name"
                                     class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent text-sm"
                                     placeholder="Enter your full name">
                             </div>
                             <div>
                                 <label class="block text-sm font-semibold text-primary mb-1" data-en="Phone Number"
                                     data-ar="رقم الهاتف">Phone Number</label>
-                                <input type="tel"
+                                <input type="tel" name="phone_number"
                                     class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent text-sm"
                                     placeholder="+91 XXXXX XXXXX">
                             </div>
@@ -855,7 +856,7 @@
                         <div>
                             <label class="block text-sm font-semibold text-primary mb-1" data-en="Email Address"
                                 data-ar="عنوان البريد الإلكتروني">Email Address</label>
-                            <input type="email"
+                            <input type="email" name="email_address"
                                 class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent text-sm"
                                 placeholder="your.email@example.com">
                         </div>
@@ -880,7 +881,7 @@
                         <div>
                             <label class="block text-sm font-semibold text-primary mb-1" data-en="Service Required"
                                 data-ar="الخدمة المطلوبة">Service Required</label>
-                            <select
+                            <select name="service_required"
                                 class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent text-sm">
                                 <option>General Consultation</option>
                                 <option>Knee Replacement</option>
@@ -892,7 +893,7 @@
                         <div>
                             <label class="block text-sm font-semibold text-primary mb-1" data-en="Message (Optional)"
                                 data-ar="رسالة (اختياري)">Message (Optional)</label>
-                            <textarea rows="3"
+                            <textarea rows="3" name="message"
                                 class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent text-sm"
                                 placeholder="Tell us about your condition or any specific requirements"></textarea>
                         </div>
